@@ -15,4 +15,5 @@ Examples:
 	| .NET 6       | net6.0        | v3.*    |
 	| .NET 7       | net7.0        | v3.*    |
 	| .NET 8       | net8.0        | v3.*    |
+	| .NET 9       | net9.0        | v3.*    |
 	#| .NET SpecFlow v2 | net45         | v2.*    |

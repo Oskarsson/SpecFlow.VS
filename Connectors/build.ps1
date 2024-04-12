@@ -1,12 +1,12 @@
 param (
-	[string]$configuration = "Debug"
+	[string]$configuration = "Release"
 )
 
 $outputFolder = "$PSScriptRoot\bin\$configuration"
 
 Remove-Item $outputFolder -Recurse -Force -ErrorAction SilentlyContinue
 
-mkdir $outputFolder 
+mkdir $outputFolder
 
 # build V1 any cpu
 
@@ -56,6 +56,10 @@ dotnet publish -f net8.0 -c $configuration
 
 Copy-Item bin\$configuration\net8.0\publish\ $outputFolder\V3-net8.0\ -Recurse
 
+dotnet publish -f net9.0 -c $configuration
+
+Copy-Item bin\$configuration\net9.0\publish\ $outputFolder\V3-net9.0\ -Recurse
+
 cd ..
 
 # build generic any cpu
@@ -73,5 +77,9 @@ Copy-Item bin\$configuration\net7.0\publish\ $outputFolder\Generic-net7.0\ -Recu
 dotnet publish -f net8.0 -c $configuration
 
 Copy-Item bin\$configuration\net8.0\publish\ $outputFolder\Generic-net8.0\ -Recurse
+
+dotnet publish -f net9.0 -c $configuration
+
+Copy-Item bin\$configuration\net9.0\publish\ $outputFolder\Generic-net9.0\ -Recurse
 
 popd

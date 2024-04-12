@@ -31,3 +31,4 @@ Examples:
 	| V6    | net6.0        |
 	| V7    | net7.0        |
 	| V8    | net8.0        |
+	| V9    | net9.0        |

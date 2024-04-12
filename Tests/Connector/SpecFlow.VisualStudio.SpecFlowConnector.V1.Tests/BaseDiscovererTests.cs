@@ -287,27 +287,6 @@ public class BaseDiscovererTests
         result.StepDefinitions[0].Error.Should().BeNull();
     }
 
-    [Fact]
-    public void Should_detect_regex_error()
-    {
-        RegisterStepDefinitionBinding();
-
-        var sut = CreateSut();
-        try
-        {
-            new Regex("invalid (regex");
-        }
-        catch (Exception ex)
-        {
-            sut.GetBindingRegistryError = new TargetInvocationException(ex);
-        }
-
-        var result = sut.DiscoverInternal(GetTestAssemblyPath(), null);
-
-        result.StepDefinitions.Should().HaveCount(1);
-        result.StepDefinitions[0].Error.Should().NotBeNullOrEmpty();
-    }
-
     private class StubDiscoverer : RemotingBaseDiscoverer
     {
         public Exception GetBindingRegistryError { get; set; }

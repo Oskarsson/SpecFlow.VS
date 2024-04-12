@@ -25,6 +25,11 @@ steps:
   inputs:
     version: 8.0.x
 
+- task: UseDotNet@2
+  displayName: 'Use .NET Core SDK 9.0.x'
+  inputs:
+    version: 9.0.x
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet restore'
   inputs:
@@ -128,7 +133,7 @@ steps:
     PathtoPublish: '$(build.artifactstagingdirectory)\marketplace'
     ArtifactName: marketplace
   condition: succeededOrFailed()
- 
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: vsix'
   inputs:

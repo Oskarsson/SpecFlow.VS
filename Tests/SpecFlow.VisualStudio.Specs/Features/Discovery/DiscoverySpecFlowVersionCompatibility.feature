@@ -75,6 +75,7 @@ Scenario Outline: Discover bindings with the right SpecFlow connector
 	Then the discovery succeeds with several step definitions
 Examples:
 	| case             | version | framework     |
+	| V3-net9.0        | v3.9.74 | net9.0        |
 	| V3-net8.0        | v3.9.74 | net8.0        |
 	| V3-net7.0        | v3.9.22 | net7.0        |
 	| V3-net6.0        | v3.9.22 | net6.0        |
